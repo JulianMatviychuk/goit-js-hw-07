@@ -1,7 +1,7 @@
-import { galleryItems } from "./gallery-items.js";
+import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-const imageGallery = document.querySelector(".gallery");
+const imageGallery = document.querySelector('.gallery');
 
 renderGallery();
 
@@ -21,15 +21,15 @@ function renderGallery() {
 </div>
   `
     )
-    .join("");
+    .join('');
 
-  imageGallery.insertAdjacentHTML("beforeend", markup);
+  imageGallery.insertAdjacentHTML('beforeend', markup);
 }
 
-imageGallery.addEventListener("click", onImageClick);
+imageGallery.addEventListener('click', onImageClick);
 
 function onImageClick(event) {
-  if (event.target.nodeName !== "IMG") {
+  if (event.target.nodeName !== 'IMG') {
     return;
   } else {
     event.preventDefault();
@@ -43,29 +43,29 @@ function showBigPicture(source) {
   instance = basicLightbox.create(
     `
     <img src="${source}" width="800" height="600">
-`, {
-    onShow: instance => {
-    addEscCloseButton();
+`,
+    {
+      onShow: instance => {
+        addEscCloseButton();
       },
       onClose: instance => {
         removeEscCloseButton();
       },
-    },
+    }
   );
   instance.show();
 }
 
 function addEscCloseButton() {
-  window.addEventListener("keydown", onEscClick);
+  window.addEventListener('keydown', onEscClick);
 }
 
 function removeEscCloseButton() {
-  window.addEventListener("keydown", onEscClick);
+  window.addEventListener('keydown', onEscClick);
 }
 
 function onEscClick(event) {
-  if (event.code === "Escape") {
+  if (event.code === 'Escape') {
     instance.close();
   }
 }
-
